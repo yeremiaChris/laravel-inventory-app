@@ -50,24 +50,14 @@ class MusikController extends Controller
     }
     // update
     public function update(Request $request,$id ) {
-        // musik::where('id',$id)->update(
-        //     ['supplier_id' => \request('supplier_id')],
-        //     ['name' => \request('name')],
-        //     // ['gambar' => $request->gambar->store('image','public')],
-        //     ['harga' => \request('harga')],
-        //     ['stok' => \request('stok')],
-
-        // );
-        // $musik->updateOrInsert(
-        //     ['']
-        // );
         $musik = musik::findOrFail($id);
+        if ($request->hasFile('gambar')) {
+            $musik->gambar = $request->gambar->store('image','public');          
+        }
         $musik->nama = \request('nama');
         $musik->supplier_id = \request('supplier_id');
-        $musik->gambar = \request('gambar');
         $musik->harga = \request('harga');
-        $musik->stok = \request('stok');
-        
+        $musik->stok = \request('stok');        
         $musik->save();
         return redirect('/musik')->with('mssg','Barang berhasil di update');
     }

@@ -32,8 +32,8 @@
             </div>
         </div>
         <div class="col-md-6 mt-4 ">
-            <div class="gambar" >
-                <img src="" alt="" class="img" >
+            <div class="gambar" style="background-image: url('/storage/{{ $musik->gambar }}')" >
+                <!-- <img src="" alt="" class="img" > -->
                 <input type="file" name="gambar" style="display: none"  class="inputGambar" value="{{ $musik->gambar }}">
             </div>
         </div>

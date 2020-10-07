@@ -28,6 +28,11 @@ Route::put('/musik/{id}',[MusikController::class,'update'])->name('musik.update'
 Route::delete('/musik/{id}', [MusikController::class, 'destroy'])->name('musik.destroy');
 // supplier
 Route::get('/supplier',[SupplierController::class, 'index'])->name('supplier.index');
+
 Route::get('/supplier/create',[SupplierController::class, 'create'])->name('supplier.create');
 Route::post('/supplier',[SupplierController::class, 'store']);
+
+Route::get('/supplier/edit/{id}',[SupplierController::class,'edit'])->name('supplier.edit');
+Route::put('/supplier/{id}',[SupplierController::class,'update'])->name('supplier.update');
+
 Route::delete('/supplier/{id}',[SupplierController::class,'destroy'])->name('supplier.destroy');

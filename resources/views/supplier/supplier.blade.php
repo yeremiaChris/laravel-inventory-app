@@ -27,7 +27,7 @@
     <tbody>
         @foreach($suppliers as $supplier)
             <tr>
-                <th>{{ $supplier->id }}</th>
+                <th>{{$kode}}{{ $supplier->id }}</th>
                 <td> <img src="/storage/{{ $supplier->gambar }}" alt=""> </td>
                 <td>{{ $supplier->nama }}</td>
                 <td>{{ $supplier->alamat }}</td>
@@ -37,7 +37,7 @@
                     <form action="{{ route('supplier.destroy',$supplier->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <a href="#" class="btn btn-primary">Edit</a> 
+                        <a href="{{ route('supplier.edit',$supplier->id) }}" class="btn btn-primary">Edit</a> 
                         <button class="btn btn-danger">Hapus</button>
                     </form>
                 </td>
