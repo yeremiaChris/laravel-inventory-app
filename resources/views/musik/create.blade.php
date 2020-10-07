@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="col-md-6 mt-4 ">
-            <div class="gambar">
+            <div class="gambar" >
                 <img src="/img/camera.png" alt="" class="img" >
                 <input type="file" name="gambar" style="display: none"  class="inputGambar">
             </div>

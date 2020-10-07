@@ -1,6 +1,8 @@
 const input = document.querySelector(".gambar .inputGambar");
 const tekan = document.querySelector(".gambar");
 const gambar = document.querySelector(".img");
+
+// click gambar biar muncul input
 tekan.addEventListener("click", function (e) {
     input.click();
 });
@@ -20,6 +22,7 @@ input.addEventListener("change", function (e) {
     }
 });
 
+// nampilin gambar
 const reset = document.querySelector(".reset");
 console.log(reset);
 const inputs = document.querySelectorAll("input");
@@ -33,3 +36,8 @@ reset.addEventListener("click", function () {
         gambar.src = "";
     }
 });
+
+// const selectFor = document.querySelector(".formSelect");
+// function ambil() {
+//     console.log(selectFor.value);
+// }

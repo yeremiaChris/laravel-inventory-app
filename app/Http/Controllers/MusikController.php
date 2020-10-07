@@ -61,6 +61,18 @@ class MusikController extends Controller
         $musik->save();
         return redirect('/musik')->with('mssg','Barang berhasil di update');
     }
+    // jualLangsung barang
+    public function jualLangsung($id) {
+        $musik = musik::findOrFail($id);
+        if($musik->stok >= 1) {
+            $musik->stok = $musik->stok - 1;
+            $musik->save();
+            return redirect('/musik')->with('mssg','Barang berhasil di Jual');
+        } else {
+            return redirect('/musik')->with('mssg','Barang Habis');
+        };
 
+    }
+    // jual Form
 
 }

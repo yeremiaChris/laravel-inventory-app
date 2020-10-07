@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MusikController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\JualController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,11 @@ Route::get('/musik/edit/{id}',[MusikController::class,'edit'])->name('musik.edit
 Route::put('/musik/{id}',[MusikController::class,'update'])->name('musik.update');
 
 Route::delete('/musik/{id}', [MusikController::class, 'destroy'])->name('musik.destroy');
+
+// jual
+Route::get('/jual/create',[JualController::class,'create'])->name('jual.create');
+Route::post('/jual',[JualController::class,'store'])->name('jual.store');
+
 // supplier
 Route::get('/supplier',[SupplierController::class, 'index'])->name('supplier.index');
 
