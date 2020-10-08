@@ -4,7 +4,7 @@
 <div class="row">
     <h5 class="mt-3">Jual Barang</h5>
 </div>
-<form class="mt-5" method="POST"  enctype="multipart/form-data" action="{{route('jual.store')}}">
+<form class="mt-5" method="POST" action="{{route('jual.store')}}">
     @csrf
     <div class="row">
         <div class="col-md-6">

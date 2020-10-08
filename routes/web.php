@@ -29,8 +29,12 @@ Route::put('/musik/{id}',[MusikController::class,'update'])->name('musik.update'
 Route::delete('/musik/{id}', [MusikController::class, 'destroy'])->name('musik.destroy');
 
 // jual
+Route::get('/jual',[JualController::class,'index'])->name('jual.index');
+
 Route::get('/jual/create',[JualController::class,'create'])->name('jual.create');
 Route::post('/jual',[JualController::class,'store'])->name('jual.store');
+
+// print penjualan  
 
 // supplier
 Route::get('/supplier',[SupplierController::class, 'index'])->name('supplier.index');
