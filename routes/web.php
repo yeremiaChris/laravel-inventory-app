@@ -31,10 +31,14 @@ Route::delete('/musik/{id}', [MusikController::class, 'destroy'])->name('musik.d
 // jual
 Route::get('/jual',[JualController::class,'index'])->name('jual.index');
 
+// delete penjualan 
+Route::delete('/jual/{kode}',[JualController::class,'destroy'])->name('jual.destroy');
+// create penjualan
 Route::get('/jual/create',[JualController::class,'create'])->name('jual.create');
-Route::post('/jual',[JualController::class,'store'])->name('jual.store');
-
 // print penjualan  
+Route::post('/jual',[JualController::class,'store'])->name('jual.store');
+Route::get('/jual/print',[JualController::class,'print'])->name('jual.print');
+
 
 // supplier
 Route::get('/supplier',[SupplierController::class, 'index'])->name('supplier.index');

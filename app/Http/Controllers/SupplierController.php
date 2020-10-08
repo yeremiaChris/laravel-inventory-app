@@ -34,6 +34,7 @@ class SupplierController extends Controller
         $supplier->save();
         return \redirect('/supplier')->with('mssg','Supplier berhasil di tambahkan');
     }
+    
     // edit
     public function edit($id) {
         $supplier = Supplier::findOrFail($id);

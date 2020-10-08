@@ -14,7 +14,7 @@ class CreateJualsTable extends Migration
     public function up()
     {
         Schema::create('juals', function (Blueprint $table) {
-            $table->id('kode');
+            $table->id('id');
             $table->integer('jumlah');
             $table->string('nama_brg');
             $table->string('gambar');

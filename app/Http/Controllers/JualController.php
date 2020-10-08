@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\musik;
 use App\Models\Jual;
-
+use PDF;
+use Carbon\Carbon;
 class JualController extends Controller
 {
     // index
@@ -13,6 +14,12 @@ class JualController extends Controller
         $kode = 'LM0';
         $jual = Jual::all();
         return view('penjualan.index',['juals' => $jual,'kode' => $kode]);
+    }
+    // destroy
+    public function destroy($id) {
+        $jual = Jual::findOrFail($id);
+        $jual->delete();
+        return redirect('/jual')->with('mssg','Laporan penjualan di hapus');
     }
     // create
     public function create() {
@@ -37,9 +44,23 @@ class JualController extends Controller
             return \redirect('/jual/create')->with('mssg','angka tidak valid');
         }
         error_log($jual->nama_brg);
-        return 'keren';
-       
+        return redirect('/jual');
     }
+    // print
+    // public function print (Request $request, $data) {
+    //     return $request->user()->downloadInvoice($data, [
+    //         musik::all()
+    //     ]);
+    // }
 
+    public function print()
+    {
+        $kode = 'LM0';
+        $bulanSekarang = Carbon::now();
+        $month = Carbon::now()->format('m');
+        $data = Jual::whereMonth('created_at',$bulanSekarang)->get();
+        $pdf = PDF::loadView('penjualan.pdf.print',['juals' => $data,'kode' => $kode,'bulanSekarang' => $bulanSekarang]);
+        return $pdf->download('Laporan_Penjualan');
+    }
 
 }
