@@ -54,3 +54,23 @@ Route::get('/supplier/edit/{id}',[SupplierController::class,'edit'])->name('supp
 Route::put('/supplier/{id}',[SupplierController::class,'update'])->name('supplier.update');
 
 Route::delete('/supplier/{id}',[SupplierController::class,'destroy'])->name('supplier.destroy');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

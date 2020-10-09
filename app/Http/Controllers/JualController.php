@@ -54,28 +54,4 @@ class JualController extends Controller
         return view('penjualan.index',['juals' => $jual,'kode' => $kode]);
     }
 
-
-    // print
-    // public function print (Request $request, $data) {
-    //     return $request->user()->downloadInvoice($data, [
-    //         musik::all()
-    //     ]);
-    // }
-
-    // public function print()
-    // {
-    //       // mengambil data dari dataase
-    // $data = Jual::all();
-     
-    // $config = [
-    //   'format' => 'A4-P', // Landscape
-    //     // 'margin_top' => 0
-    //     'isRemoteEnabled' => true
-    // ];
-        
-    // $pdf = PDF::loadview('penjualan.pdf.print',['juals' => $data],$config);
-	// // OR :: $pdf = PDF::loadview('pdf_data_member',$data,[],['format' => 'A4-L']);
-    // return $pdf->stream();
-    // }
-
 }
