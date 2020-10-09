@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="row">
-    <h5 class="mt-3">Daftar Musik</h5>
+    <h5 class="mt-3">Daftar Barang</h5>
 </div>
 <div class="row mt-3 d-flex justify-content-between">
     <a href="{{ route('musik.create') }}" class="btn btn-outline-primary"> Tambah Barang</a>
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <form class="form-inline my-2 my-lg-0" action="{{ route('musik.search') }}">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 </div>
@@ -19,7 +19,7 @@
             <th scope="col table">Kode  &darr;&uarr; </th>
             <th scope="col table">Gambar &darr;&uarr; </th>
             <th scope="col">Nama Barang &darr;&uarr;</th>
-            <th scope="col">Supplier &darr;&uarr;</th>
+            <th scope="col">Kode Supplier &darr;&uarr;</th>
             <th scope="col">Stok &darr;&uarr;</th>
             <th scope="col">Harga &darr;&uarr;</th>
             <th scope="col">Aksi &darr;&uarr;</th>
@@ -31,7 +31,7 @@
                 <th>{{$kode}}{{ $musik->id }}</th>
                 <td> <img src="/storage/{{ $musik->gambar }}" alt=""> </td>
                 <td>{{ $musik->nama }}</td>
-                <td>{{ $musik->supplier_id }}</td>
+                <td>{{ $kodeSup }}{{ $musik->supplier_id }}</td>
                 <td>{{ $musik->stok }}</td>
                 <td>@currency($musik->harga)</td>
                 <td> 
@@ -46,5 +46,8 @@
         @endforeach
     </tbody>
     </table>
+</div>
+<div class="row">
+    {{$musiks->links()}}
 </div>
 @endsection 

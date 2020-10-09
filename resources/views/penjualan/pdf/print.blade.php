@@ -21,7 +21,6 @@
                 <h1>Laporan Penjualan</h1>
             </div>
             <div class="row">
-            {{ $bulanSekarang->format('M Y') }}
             </div>
             <div class="row">
                 <table class="table table-bordered mt-3">
@@ -37,7 +36,7 @@
                     <tbody>
                         @foreach($juals as $jual)
                             <tr>
-                                <th>{{ $kode }}{{ $jual->id }}</th>
+                                <th>{{ $jual->id }}</th>
                                 <td> <img src="/storage/{{ $jual->gambar }}" alt=""> </td>
                                 <td>{{ $jual->nama_brg }}</td>
                                 <td>{{ $jual->jumlah }}</td>

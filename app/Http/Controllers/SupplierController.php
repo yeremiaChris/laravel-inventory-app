@@ -10,7 +10,7 @@ class SupplierController extends Controller
     // index
     public function index() {
         $kode = 'MS00';
-        $supplier = Supplier::latest()->get();
+        $supplier = Supplier::latest()->simplePaginate(2);
         return view('supplier.supplier',['suppliers' => $supplier,'kode' => $kode]);
     }
     // hapus atau destroy
@@ -51,5 +51,12 @@ class SupplierController extends Controller
         $supplier->telpon = \request('telpon');
         $supplier->save();
         return \redirect('/supplier');
+    }
+    // search
+    public function search() {
+        $search = \request('search');
+        $supplier = Supplier::where('nama','like','%'.$search.'%')->paginate(2);
+        $kode = 'MS00';
+        return view('supplier.supplier',['suppliers' => $supplier,'kode' => $kode]);    
     }
 }

@@ -12,7 +12,7 @@ class JualController extends Controller
     // index
     public function index() {
         $kode = 'LM0';
-        $jual = Jual::all();
+        $jual = Jual::latest()->simplePaginate(2);
         return view('penjualan.index',['juals' => $jual,'kode' => $kode]);
     }
     // destroy
@@ -46,6 +46,15 @@ class JualController extends Controller
         error_log($jual->nama_brg);
         return redirect('/jual');
     }
+    // search
+    public function search() {
+        $kode = 'LM0';
+        $search = \request('search');
+        $jual = Jual::where('nama_brg','like','%'.$search.'%')->paginate(2);
+        return view('penjualan.index',['juals' => $jual,'kode' => $kode]);
+    }
+
+
     // print
     // public function print (Request $request, $data) {
     //     return $request->user()->downloadInvoice($data, [
@@ -53,14 +62,20 @@ class JualController extends Controller
     //     ]);
     // }
 
-    public function print()
-    {
-        $kode = 'LM0';
-        $bulanSekarang = Carbon::now();
-        $month = Carbon::now()->format('m');
-        $data = Jual::whereMonth('created_at',$bulanSekarang)->get();
-        $pdf = PDF::loadView('penjualan.pdf.print',['juals' => $data,'kode' => $kode,'bulanSekarang' => $bulanSekarang]);
-        return $pdf->download('Laporan_Penjualan');
-    }
+    // public function print()
+    // {
+    //       // mengambil data dari dataase
+    // $data = Jual::all();
+     
+    // $config = [
+    //   'format' => 'A4-P', // Landscape
+    //     // 'margin_top' => 0
+    //     'isRemoteEnabled' => true
+    // ];
+        
+    // $pdf = PDF::loadview('penjualan.pdf.print',['juals' => $data],$config);
+	// // OR :: $pdf = PDF::loadview('pdf_data_member',$data,[],['format' => 'A4-L']);
+    // return $pdf->stream();
+    // }
 
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Pagination\Paginator;
 
 use Illuminate\Http\Request;
 use App\Models\musik;
@@ -9,9 +10,10 @@ class MusikController extends Controller
 {
     // index
     public function index() {
-        $musik = musik::latest()->get();
+        $musik = musik::latest()->simplePaginate(2);
+        $kodeSup = 'MS00';
         $kode = 'MB00';
-        return view('musik.musik',['musiks' => $musik,'kode' => $kode]);
+        return view('musik.musik',['musiks' => $musik,'kode' => $kode,'kodeSup' => $kodeSup]);
     }
     // destroy/delete
     public function destroy($id) {
@@ -74,5 +76,12 @@ class MusikController extends Controller
 
     }
     // jual Form
+    public function search() {
+        $search = \request('search');
+        $kodeSup = 'MS00';
+        $kode = 'MB00';
+        $musik  = musik::where('nama','like','%'.$search. '%')->simplePaginate(2);
+        return view("musik.musik",['musiks' => $musik,'kode' => '$kode','kodeSup' => $kodeSup]);
+    }
 
 }

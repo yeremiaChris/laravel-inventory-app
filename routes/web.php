@@ -15,10 +15,12 @@ use App\Http\Controllers\JualController;
 |
 */
 // musik
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [MusikController::class, 'index'])->name('musik.index');
 Route::get('/musik', [MusikController::class, 'index'])->name('musik.index');
+Route::get('/musik/search', [MusikController::class, 'search'])->name('musik.search');
 
 Route::get('/musik/create', [MusikController::class, 'create'])->name('musik.create');
 Route::post('/musik', [MusikController::class, 'store']);
@@ -30,6 +32,7 @@ Route::delete('/musik/{id}', [MusikController::class, 'destroy'])->name('musik.d
 
 // jual
 Route::get('/jual',[JualController::class,'index'])->name('jual.index');
+Route::get('/jual/search',[JualController::class,'search'])->name('jual.search');
 
 // delete penjualan 
 Route::delete('/jual/{kode}',[JualController::class,'destroy'])->name('jual.destroy');
@@ -37,11 +40,12 @@ Route::delete('/jual/{kode}',[JualController::class,'destroy'])->name('jual.dest
 Route::get('/jual/create',[JualController::class,'create'])->name('jual.create');
 // print penjualan  
 Route::post('/jual',[JualController::class,'store'])->name('jual.store');
-Route::get('/jual/print',[JualController::class,'print'])->name('jual.print');
+// Route::get('/jual/print',[JualController::class,'print'])->name('jual.print');
 
 
 // supplier
 Route::get('/supplier',[SupplierController::class, 'index'])->name('supplier.index');
+Route::get('/supplier/search',[SupplierController::class, 'search'])->name('supplier.search');
 
 Route::get('/supplier/create',[SupplierController::class, 'create'])->name('supplier.create');
 Route::post('/supplier',[SupplierController::class, 'store']);
