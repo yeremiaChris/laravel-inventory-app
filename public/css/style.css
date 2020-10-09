@@ -1,0 +1,66 @@
+#fixed-sidebar {
+    position: fixed;
+    max-width: 10%;
+    color: black;
+}
+li {
+    list-style: none;
+}
+#fixed-sidebar ul li {
+    margin-left: -50px;
+    line-height: 50px;
+}
+
+.petak {
+    background-color: burlywood;
+    height: 100px;
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+}
+.petak p {
+    color: white;
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: 20px;
+}
+.petak img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.content {
+    border: 1px solid black;
+}
+
+.nav {
+    margin-left: -px;
+}
+
+td img {
+    width: 100px;
+    height: 100px;
+}
+
+.gambar {
+    width: 310px;
+    height: 310px;
+    border: 1px solid rgb(214, 212, 212);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
+li img {
+    margin-right: 10px;
+}
+
+#detailImg {
+    width: 310px;
+    height: 310px;
+}
+/* tr td form {
+    display: flex;
+} */
