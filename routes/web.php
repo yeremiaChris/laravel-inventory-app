@@ -18,58 +18,44 @@ use App\Http\Controllers\JualController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', [MusikController::class, 'index'])->name('musik.index');
-Route::get('/musik', [MusikController::class, 'index'])->name('musik.index');
-Route::get('/musik/search', [MusikController::class, 'search'])->name('musik.search');
+Route::get('/', [MusikController::class, 'index'])->name('musik.index')->middleware('auth');
+Route::get('/musik', [MusikController::class, 'index'])->name('musik.index')->middleware('auth');
+Route::get('/musik/search', [MusikController::class, 'search'])->name('musik.search')->middleware('auth');
 
-Route::get('/musik/create', [MusikController::class, 'create'])->name('musik.create');
-Route::post('/musik', [MusikController::class, 'store']);
+Route::get('/musik/create', [MusikController::class, 'create'])->name('musik.create')->middleware('auth');
+Route::post('/musik', [MusikController::class, 'store'])->middleware('auth');
 
-Route::get('/musik/edit/{id}',[MusikController::class,'edit'])->name('musik.edit');
-Route::put('/musik/{id}',[MusikController::class,'update'])->name('musik.update');
+Route::get('/musik/edit/{id}',[MusikController::class,'edit'])->name('musik.edit')->middleware('auth');
+Route::put('/musik/{id}',[MusikController::class,'update'])->name('musik.update')->middleware('auth');
 
-Route::delete('/musik/{id}', [MusikController::class, 'destroy'])->name('musik.destroy');
+Route::delete('/musik/{id}', [MusikController::class, 'destroy'])->name('musik.destroy')->middleware('auth');
 
 // jual
-Route::get('/jual',[JualController::class,'index'])->name('jual.index');
-Route::get('/jual/search',[JualController::class,'search'])->name('jual.search');
+Route::get('/jual',[JualController::class,'index'])->name('jual.index')->middleware('auth');
+Route::get('/jual/search',[JualController::class,'search'])->name('jual.search')->middleware('auth');
 
 // delete penjualan 
-Route::delete('/jual/{kode}',[JualController::class,'destroy'])->name('jual.destroy');
+Route::delete('/jual/{kode}',[JualController::class,'destroy'])->name('jual.destroy')->middleware('auth');
 // create penjualan
-Route::get('/jual/create',[JualController::class,'create'])->name('jual.create');
+Route::get('/jual/create',[JualController::class,'create'])->name('jual.create')->middleware('auth');
 // print penjualan  
-Route::post('/jual',[JualController::class,'store'])->name('jual.store');
+Route::post('/jual',[JualController::class,'store'])->name('jual.store')->middleware('auth');
 // Route::get('/jual/print',[JualController::class,'print'])->name('jual.print');
 
 
 // supplier
-Route::get('/supplier',[SupplierController::class, 'index'])->name('supplier.index');
-Route::get('/supplier/search',[SupplierController::class, 'search'])->name('supplier.search');
+Route::get('/supplier',[SupplierController::class, 'index'])->name('supplier.index')->middleware('auth');
+Route::get('/supplier/search',[SupplierController::class, 'search'])->name('supplier.search')->middleware('auth');
 
-Route::get('/supplier/create',[SupplierController::class, 'create'])->name('supplier.create');
-Route::post('/supplier',[SupplierController::class, 'store']);
+Route::get('/supplier/create',[SupplierController::class, 'create'])->name('supplier.create')->middleware('auth');
+Route::post('/supplier',[SupplierController::class, 'store'])->middleware('auth');
 
-Route::get('/supplier/edit/{id}',[SupplierController::class,'edit'])->name('supplier.edit');
-Route::put('/supplier/{id}',[SupplierController::class,'update'])->name('supplier.update');
+Route::get('/supplier/edit/{id}',[SupplierController::class,'edit'])->name('supplier.edit')->middleware('auth');
+Route::put('/supplier/{id}',[SupplierController::class,'update'])->name('supplier.update')->middleware('auth');
 
-Route::delete('/supplier/{id}',[SupplierController::class,'destroy'])->name('supplier.destroy');
 
-Auth::routes();
+Route::delete('/supplier/{id}',[SupplierController::class,'destroy'])->name('supplier.destroy')->middleware('auth');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
