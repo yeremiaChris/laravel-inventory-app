@@ -33,6 +33,7 @@ Route::delete('/musik/{id}', [MusikController::class, 'destroy'])->name('musik.d
 // jual
 Route::get('/jual',[JualController::class,'index'])->name('jual.index')->middleware('auth');
 Route::get('/jual/search',[JualController::class,'search'])->name('jual.search')->middleware('auth');
+Route::get('/jual/print',[JualController::class,'print'])->name('jual.print')->middleware('auth');
 
 // delete penjualan 
 Route::delete('/jual/{kode}',[JualController::class,'destroy'])->name('jual.destroy')->middleware('auth');

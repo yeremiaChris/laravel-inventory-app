@@ -18,7 +18,7 @@
     <body class="antialiased">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">INVENTORY</a>
+            <a class="navbar-brand" href="/">INVENTORY</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -66,6 +66,11 @@
                 {{ session('mssg') }}
             </div>
         @endif
+        @if(session('hps'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('hps') }}
+            </div>
+        @endif
     </div>
 
 
@@ -86,8 +91,8 @@
                                         <li class="fuente-fjalla ul-personalizada"><img src="/img/item.png" alt=""> <a href="{{ route('jual.index') }}">Rekapan Penjualan</a></li>
                                         <li class="fuente-fjalla ul-personalizada"><img src="/img/supplier.png" alt=""> <a href="{{ route('supplier.index') }}">Daftar Supplier</a> </li>
                                         <li class="fuente-fjalla ul-personalizada">Blog</li>
-                                        <li class="fuente-fjalla ul-personalizada"><a href="acerca.html">Acerca</a></li>
-                                        <li class="fuente-fjalla ul-personalizada">Contacto</li>
+                                        <li class="fuente-fjalla ul-personalizada"><a href="acerca.html">About</a></li>
+                                        <li class="fuente-fjalla ul-personalizada">Contact Us</li>
                                     </ul>
                                 </div>
                             </nav>
@@ -103,7 +108,6 @@
     </div>
 
         <script src="/js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

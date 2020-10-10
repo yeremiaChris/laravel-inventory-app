@@ -12,6 +12,11 @@
     </form>
 </div>
 <div class="row">
+    <span class="btn btn-secondary mt-3">
+       Jumlah Total :  {{ $jumlah }}
+    </span>
+</div>
+<div class="row">
     
     <table class="table table-bordered mt-3">
     <thead>

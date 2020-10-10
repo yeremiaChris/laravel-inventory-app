@@ -27,7 +27,6 @@
                     <thead>
                         <tr>
                             <th scope="col table">Kode Jual  </th>
-                            <th scope="col table">Gambar </th>
                             <th scope="col">Nama Barang </th>
                             <th scope="col">Jumlah Jual </th>
                             <th scope="col">Waktu Penjualan</th>
@@ -37,7 +36,6 @@
                         @foreach($juals as $jual)
                             <tr>
                                 <th>{{ $jual->id }}</th>
-                                <td> <img src="/storage/{{ $jual->gambar }}" alt=""> </td>
                                 <td>{{ $jual->nama_brg }}</td>
                                 <td>{{ $jual->jumlah }}</td>
                                 <td>{{ $jual->created_at->format('d M Y') }}</td>

@@ -54,4 +54,11 @@ class JualController extends Controller
         return view('penjualan.index',['juals' => $jual,'kode' => $kode]);
     }
 
+    public function print() {
+        $kode = 'LM0';
+        $data = Jual::latest()->get();
+		$pdf = PDF::loadView('penjualan.pdf.print',['juals' => $data]);
+		return $pdf->stream('document.pdf');
+    }
+
 }

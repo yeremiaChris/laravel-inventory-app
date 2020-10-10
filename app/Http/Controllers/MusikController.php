@@ -10,16 +10,18 @@ class MusikController extends Controller
 {
     // index
     public function index() {
+        $data = musik::all();
         $musik = musik::latest()->simplePaginate(2);
+        $jumlahMusik = count($data);
         $kodeSup = 'MS00';
         $kode = 'MB00';
-        return view('musik.musik',['musiks' => $musik,'kode' => $kode,'kodeSup' => $kodeSup]);
+        return view('musik.musik',['jumlah' => $jumlahMusik,'musiks' => $musik,'kode' => $kode,'kodeSup' => $kodeSup]);
     }
     // destroy/delete
     public function destroy($id) {
         $musik = musik::findOrFail($id);
         $musik->delete();
-        return redirect('/musik')->with('mssg','Barang sudah di hapus');
+        return redirect('/musik')->with('hps','Barang sudah di hapus');
     }
     // create
     public function create() {
@@ -43,7 +45,7 @@ class MusikController extends Controller
         return \redirect('/musik')->with('mssg','Barang berhasil di tambahkan');
     }
     // edit
-    public function edit($id) {
+    public function edit($id) { 
         $musik = musik::findOrFail($id);
         $supplier = Supplier::all(); 
         $nama = $supplier->where('id',$musik->supplier_id)->first();
