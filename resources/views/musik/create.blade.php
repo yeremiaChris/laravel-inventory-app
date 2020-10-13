@@ -22,18 +22,12 @@
                 </select>            
             </div>
             <div class="form-group">
-                <label for="stok">Stok</label>
-                <input type="number" class="form-control" id="stok" placeholder="stok barang" name="stok">
+                <label for="hargaBeli">Harga Beli</label>
+                <input type="number" class="form-control" id="harga" placeholder="harga beli barang" name="hargaBeli">
             </div>
             <div class="form-group">
-                <label for="harga">Harga</label>
-                <input type="number" class="form-control" id="harga" placeholder="harga beli barang" name="harga">
-            </div>
-        </div>
-        <div class="col-md-6 mt-4 ">
-            <div class="gambar" >
-                <img src="/img/camera.png" alt="" class="img" >
-                <input type="file" name="gambar" style="display: none"  class="inputGambar">
+                <label for="hargaJual">Harga Jual</label>
+                <input type="number" class="form-control" id="harga" placeholder="harga beli barang" name="hargaJual">
             </div>
         </div>
     </div>

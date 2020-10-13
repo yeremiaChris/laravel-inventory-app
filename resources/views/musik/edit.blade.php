@@ -23,18 +23,12 @@
                 </select>            
             </div>
             <div class="form-group">
-                <label for="stok">Stok</label>
-                <input type="number" value="{{ $musik->stok }}" class="form-control" id="stok" placeholder="stok barang" name="stok">
+                <label for="hargaBeli">Harga Beli</label>
+                <input type="number" value="{{ $musik->hargaBeli }}" class="form-control" id="hargaBeli" placeholder="harga beli barang" name="hargaBeli">
             </div>
             <div class="form-group">
-                <label for="harga">Harga</label>
-                <input type="number" value="{{ $musik->harga }}" class="form-control" id="harga" placeholder="harga beli barang" name="harga">
-            </div>
-        </div>
-        <div class="col-md-6 mt-4 ">
-            <div class="gambar" style="background-image: url('/storage/{{ $musik->gambar }}')" >
-                <!-- <img src="" alt="" class="img" > -->
-                <input type="file" name="gambar" style="display: none"  class="inputGambar" value="{{ $musik->gambar }}">
+                <label for="hargaJual">Harga Jual</label>
+                <input type="number" value="{{ $musik->hargaJual }}" class="form-control" id="hargaJual" placeholder="harga beli barang" name="hargaJual">
             </div>
         </div>
     </div>

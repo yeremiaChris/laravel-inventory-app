@@ -29,22 +29,31 @@ class JualController extends Controller
     // store
     public function store() {
         $jual = new Jual();
-        $jual->jumlah = \request('jumlah');
+        $jual->jumlah = \request('jumlah')->rules('required');
         $id = \request('musik');
         $musik = musik::where('id',$id)->first();
-        if($musik->stok >= $jual->jumlah && $jual->jumlah > 0) {
+
+        if ($jual->jumlah > $musik->stok || $jual->jumlah <= 0) {
+            return \redirect('/jual/create')->with('mssg','angka tidak valid');
+        } else {
             $musik->stok = $musik->stok - $jual->jumlah;
             $jual->nama_brg = $musik->nama;
-            $jual->gambar = $musik->gambar;
             $musik->save();
             $jual->save();
-        } elseif($musik->stok < $jual->jumlah) {
-            return \redirect('/jual/create')->with('mssg','stok habis');
-        } else {
-            return \redirect('/jual/create')->with('mssg','angka tidak valid');
+            return redirect('/');
         }
-        error_log($jual->nama_brg);
-        return redirect('/jual');
+        // if($musik->stok >= $jual->jumlah && $jual->jumlah > 0) {
+        //     $musik->stok = $musik->stok - $jual->jumlah;
+        //     $jual->nama_brg = $musik->nama;
+        //     $musik->save();
+        //     $jual->save();
+        // } elseif($musik->stok < $jual->jumlah) {
+        //     return \redirect('/jual/create')->with('mssg','stok habis');
+        // } else {
+        //     return \redirect('/jual/create')->with('mssg','angka tidak valid');
+        // }
+        // error_log($jual->nama_brg);
+        // return redirect('/');
     }
     // search
     public function search() {

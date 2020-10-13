@@ -12,33 +12,28 @@
     </form>
 </div>
 <div class="row">
-    <span class="btn btn-secondary mt-3">
-       Jumlah Total :  {{ $jumlah }}
-    </span>
-</div>
-<div class="row">
     
     <table class="table table-bordered mt-3">
     <thead>
         <tr>
-            <th scope="col table">Kode  &darr;&uarr; </th>
-            <th scope="col table">Gambar &darr;&uarr; </th>
-            <th scope="col">Nama Barang &darr;&uarr;</th>
-            <th scope="col">Kode Supplier &darr;&uarr;</th>
-            <th scope="col">Stok &darr;&uarr;</th>
-            <th scope="col">Harga &darr;&uarr;</th>
-            <th scope="col">Aksi &darr;&uarr;</th>
+            <th scope="col table">Kode </th>
+            <th scope="col">Nama Barang</th>
+            <th scope="col">Kode Supplier </th>
+            <th scope="col">Harga Beli</th>
+            <th scope="col">Harga Jual</th>
+            <th scope="col">Stok</th>
+            <th scope="col">Aksi</th>
         </tr>
     </thead>
     <tbody>
         @foreach($musiks as $musik)
             <tr>
                 <th>{{$kode}}{{ $musik->id }}</th>
-                <td> <img src="/storage/{{ $musik->gambar }}" alt=""> </td>
                 <td>{{ $musik->nama }}</td>
                 <td>{{ $kodeSup }}{{ $musik->supplier_id }}</td>
-                <td>{{ $musik->stok }}</td>
-                <td>@currency($musik->harga)</td>
+                <td>@currency($musik->hargaBeli)</td>
+                <td>@currency($musik->hargaJual)</td>
+                <td>{{$musik->stok}}</td>
                 <td> 
                     <form action="{{ route('musik.destroy',$musik->id) }}" method="POST">
                         @csrf

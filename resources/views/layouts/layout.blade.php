@@ -87,6 +87,8 @@
                                     <!-- <a href="index.html"><img id="home-logo" src="../media/logo-prueba.jpg" alt="Logo de Animanoir"></a>  -->
                                     <ul>
                                         <li class="fuente-fjalla ul-personalizada"><img src="/img/dashboard.png" alt=""><a href="/">Dahsboard</a></li>
+                                        <li class="fuente-fjalla ul-personalizada"><img src="/img/item.png" alt=""> <a href="{{ route('pembelian.create') }}">Form Beli</a></li>
+                                        <li class="fuente-fjalla ul-personalizada"><img src="/img/item.png" alt=""> <a href="{{ route('pembelian.index') }}">Laporan Pembelian</a></li>
                                         <li class="fuente-fjalla ul-personalizada"><img src="/img/item.png" alt=""> <a href="{{ route('jual.create') }}">Form Jual</a></li>
                                         <li class="fuente-fjalla ul-personalizada"><img src="/img/item.png" alt=""> <a href="{{ route('jual.index') }}">Rekapan Penjualan</a></li>
                                         <li class="fuente-fjalla ul-personalizada"><img src="/img/supplier.png" alt=""> <a href="{{ route('supplier.index') }}">Daftar Supplier</a> </li>

@@ -17,9 +17,9 @@ class CreateMusiksTable extends Migration
             $table->id('id');
             $table->bigInteger('supplier_id');
             $table->string('nama');
-            $table->string('gambar');
-            $table->integer('harga');
-            $table->integer('stok');
+            $table->integer('hargaBeli');
+            $table->integer('hargaJual');
+            $table->integer('stok')->default(0);
             $table->timestamps();
         });
     }

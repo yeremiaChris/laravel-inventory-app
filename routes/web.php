@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MusikController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\JualController;
+use App\Http\Controllers\PembelianController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,7 +58,14 @@ Route::put('/supplier/{id}',[SupplierController::class,'update'])->name('supplie
 
 Route::delete('/supplier/{id}',[SupplierController::class,'destroy'])->name('supplier.destroy')->middleware('auth');
 
+// pembelian
+Route::get('/beli',[PembelianController::class, 'index'])->name('pembelian.index')->middleware('auth');
+Route::get('/beli/create',[PembelianController::class, 'create'])->name('pembelian.create')->middleware('auth');
+Route::post('/beli',[PembelianController::class, 'store'])->name('pembelian.store')->middleware('auth');
 
+
+
+// auth
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

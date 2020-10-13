@@ -29,13 +29,12 @@ class MusikController extends Controller
         return view('musik.create',['suppliers' => $supplier]);
     }
     // store data
-    public function store(Request $request) {
+    public function store() {
         $musik = new musik();
         $musik->nama = \request('nama');
         $musik->supplier_id = \request('supplier');
-        $musik->gambar = $request->gambar->store('image','public');
-        $musik->harga = \request('harga');
-        $musik->stok = \request('stok');
+        $musik->hargaBeli = \request('hargaJual');
+        $musik->hargaJual = \request('hargaBeli');
 
         $musik->save();
 

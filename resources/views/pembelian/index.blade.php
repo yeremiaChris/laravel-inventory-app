@@ -25,25 +25,25 @@
     <table class="table table-bordered mt-3">
     <thead>
         <tr>
-            <th scope="col table">Kode Jual  &darr;&uarr; </th>
+            <th scope="col table">Kode beli  &darr;&uarr; </th>
             <th scope="col">Nama Barang &darr;&uarr;</th>
-            <th scope="col">Jumlah Jual &darr;&uarr;</th>
+            <th scope="col">Jumlah beli &darr;&uarr;</th>
             <th scope="col">Waktu Penjualan &darr;&uarr;</th>
         </tr>
     </thead>
     <tbody >
-        @foreach($juals as $jual)
+        @foreach($belis as $beli)
             <tr>
-                <th>{{ $kode }}{{ $jual->id }}</th>
-                <td>{{ $jual->nama_brg }}</td>
-                <td>{{ $jual->jumlah }}</td>
-                <td>{{ $jual->created_at->format('d F Y') }}</td>
+                <th>{{ $kode }}{{ $beli->id }}</th>
+                <td>{{ $beli->nama_brg }}</td>
+                <td>{{ $beli->jumlah }}</td>
+                <td>{{ $beli->created_at->format('d F Y') }}</td>
             </tr>
         @endforeach
     </tbody>
     </table>
 </div>
 <div class="row">
-    {{ $juals->links() }}
+    {{ $belis->links() }}
 </div>
 @endsection 
